@@ -30,6 +30,7 @@ and it's you who lives inside my head.
 function typeEffect(elementId, text, speed, callback) {
     let i = 0;
     const element = document.getElementById(elementId);
+    element.innerHTML = ""; // Clear existing text
     function type() {
         if (i < text.length) {
             element.innerHTML += text.charAt(i);

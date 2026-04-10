@@ -11,9 +11,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Changed from height to min-height */
     flex-direction: column;
-    overflow: hidden;
+    padding: 20px; /* Space around the paper on mobile */
+    overflow-x: hidden;
 }
 
 .intro {
@@ -42,37 +43,42 @@ body {
         #d2d2d2 28px
     );
     color: #333;
-    padding: 0px 30px 30px 70px; 
+    /* Responsive padding: slightly less on mobile */
+    padding: 30px 20px 60px 65px; 
     border-radius: 10px;
-    width: 85%;
-    max-width: 500px;
-    height: 560px;
+    width: 95%; /* Use most of the screen width on phone */
+    max-width: 500px; /* Don't get too big on PC */
+    min-height: 500px; /* Minimum height to look like a page */
+    height: auto; /* Let it grow if text is long */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     position: relative;
     white-space: pre-wrap;
     font-family: "Courier New", monospace;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 28px;
+    word-wrap: break-word;
 }
 
+/* The red vertical line */
 .letter::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 60px;
+    left: 50px; /* Adjusted for better phone alignment */
     width: 2px;
     height: 100%;
     background-color: rgba(255, 0, 0, 0.2);
 }
 
+/* The notebook holes */
 .letter::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 25px;
+    width: 20px;
     height: 100%;
-    background-image: radial-gradient(circle, #1e1e2f 6px, transparent 7px);
+    background-image: radial-gradient(circle, #1e1e2f 5px, transparent 6px);
     background-size: 25px 40px;
     background-repeat: repeat-y;
 }
@@ -82,7 +88,7 @@ body {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    padding: 5px 12px;
+    padding: 8px 15px;
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid #999;
     border-radius: 4px;
@@ -95,9 +101,20 @@ body {
     position: absolute;
     bottom: 15px;
     right: 15px;
-    width: 140px;
+    width: 100px;
     opacity: 0;
     transition: opacity 1.5s ease-in;
     transform: rotate(-2deg);
     pointer-events: none;
+}
+
+/* Mobile alignment fix */
+@media (max-width: 400px) {
+    .letter {
+        font-size: 0.95rem; /* Smaller font for small phones */
+        padding-left: 55px;
+    }
+    .letter::before {
+        left: 45px;
+    }
 }
