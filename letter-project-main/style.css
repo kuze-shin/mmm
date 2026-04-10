@@ -11,16 +11,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Changed to min-height for mobile scrolling */
+    min-height: 100vh;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     overflow-x: hidden;
 }
 
 .intro {
     text-align: center;
-    font-size: 1.4rem;
-    margin-bottom: 30px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
     transition: opacity 1s ease;
 }
 
@@ -43,42 +43,39 @@ body {
         #d2d2d2 28px
     );
     color: #333;
-    /* Flexible padding to keep text safe inside the paper */
-    padding: 30px 20px 70px 70px; 
+    padding: 30px 15px 70px 65px; 
     border-radius: 10px;
-    width: 100%;
-    max-width: 500px;
-    min-height: 520px; /* Minimum height to keep paper shape */
-    height: auto;      /* CRITICAL: Allows paper to expand on mobile */
+    width: 95%; /* Fits phone width */
+    max-width: 450px;
+    min-height: 500px; /* Keep page shape */
+    height: auto !important; /* Forces the paper to expand */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     position: relative;
     white-space: pre-wrap;
-    word-wrap: break-word; /* Prevents text from going outside */
+    word-wrap: break-word; /* Keeps text inside */
     font-family: "Courier New", monospace;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 28px;
 }
 
-/* Red Margin Line */
 .letter::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 60px;
+    left: 55px;
     width: 2px;
     height: 100%;
     background-color: rgba(255, 0, 0, 0.2);
 }
 
-/* Hole Punch Holes */
 .letter::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 25px;
+    width: 20px;
     height: 100%;
-    background-image: radial-gradient(circle, #1e1e2f 6px, transparent 7px);
+    background-image: radial-gradient(circle, #1e1e2f 5px, transparent 6px);
     background-size: 25px 40px;
     background-repeat: repeat-y;
 }
@@ -88,12 +85,12 @@ body {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    padding: 8px 15px;
+    padding: 8px 12px;
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid #999;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #444;
 }
 
@@ -101,21 +98,21 @@ body {
     position: absolute;
     bottom: 15px;
     right: 15px;
-    width: 130px;
+    width: 100px;
     opacity: 0;
     transition: opacity 1.5s ease-in;
     transform: rotate(-2deg);
     pointer-events: none;
 }
 
-/* Specific Phone Alignment Adjustment */
+/* Specific Phone Tweak */
 @media (max-width: 480px) {
     .letter {
         padding-left: 55px;
-        padding-right: 15px;
-        font-size: 1rem;
+        padding-right: 10px;
+        font-size: 0.95rem;
     }
     .letter::before {
-        left: 45px;
+        left: 48px;
     }
 }
