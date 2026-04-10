@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A Poem for You</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="intro" id="introText">i hope you read this.</div>
+    <button class="btn" id="startBtn" onclick="showLetter()">Read it</button>
+
+    <div class="letter" id="letterBox">
+        <p id="typedText"></p>
+        <button class="next-btn" id="nextBtn" onclick="showSecondPage()">Next Page</button>
+    </div>
+
+    <div class="letter" id="secondLetterBox">
+        <p id="typedText2"></p>
+        <button class="next-btn" id="nextBtn2" onclick="showThirdPage()" style="display: none;">Next Page</button>
+    </div>
+
+    <div class="letter" id="thirdLetterBox">
+        <p id="typedText3"></p>
+        <img src="ttd.png" alt="Signature" class="signature" id="finalSignature" />
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

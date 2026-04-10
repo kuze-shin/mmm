@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Georgia", serif;
+    background: #1e1e2f;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.intro {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    transition: opacity 1s ease;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #f5eeef;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #000;
+}
+
+.letter {
+    display: none;
+    background: #fdf6e3;
+    background-image: repeating-linear-gradient(
+        transparent,
+        transparent 27px,
+        #d2d2d2 28px
+    );
+    color: #333;
+    padding: 0px 30px 30px 70px; 
+    border-radius: 10px;
+    width: 85%;
+    max-width: 500px;
+    height: 560px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    white-space: pre-wrap;
+    font-family: "Courier New", monospace;
+    font-size: 1.1rem;
+    line-height: 28px;
+}
+
+.letter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 60px;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.letter::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 100%;
+    background-image: radial-gradient(circle, #1e1e2f 6px, transparent 7px);
+    background-size: 25px 40px;
+    background-repeat: repeat-y;
+}
+
+.next-btn {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 5px 12px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid #999;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #444;
+}
+
+.signature {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 140px;
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    transform: rotate(-2deg);
+    pointer-events: none;
+}
