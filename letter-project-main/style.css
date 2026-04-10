@@ -9,27 +9,25 @@ body {
     background: #1e1e2f;
     color: #fff;
     display: flex;
-    justify-content: center;
-    /* Moves paper to the top rather than the dead center */
-    align-items: flex-start; 
-    min-height: 100vh;
     flex-direction: column;
-    /* Added top padding to balance the paper at the top */
-    padding: 40px 15px; 
+    align-items: center;
+    /* This moves everything to the top */
+    justify-content: flex-start; 
+    min-height: 100vh;
+    /* Added padding-top to give it a small gap from the very top edge */
+    padding: 20px 15px; 
     overflow-x: hidden;
 }
 
 .intro {
     text-align: center;
-    width: 100%;
     font-size: 1.2rem;
     margin-bottom: 20px;
+    margin-top: 10px;
     transition: opacity 1s ease;
 }
 
 .btn {
-    margin: 0 auto;
-    display: block;
     padding: 12px 24px;
     font-size: 1rem;
     background: #f5eeef;
@@ -37,6 +35,7 @@ body {
     border-radius: 20px;
     cursor: pointer;
     color: #000;
+    margin-bottom: 20px;
 }
 
 .letter {
@@ -48,13 +47,13 @@ body {
         #d2d2d2 28px
     );
     color: #333;
-    /* Balanced padding: 75px left to clear the red line and holes */
-    padding: 40px 20px 80px 75px; 
-    border-radius: 10px;
+    /* 75px left padding ensures text starts after the red line */
+    padding: 35px 20px 80px 75px; 
+    border-radius: 8px;
     width: 100%;
-    max-width: 480px;
-    min-height: 600px; 
-    height: auto !important; 
+    max-width: 450px;
+    min-height: 580px;
+    height: auto !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     position: relative;
     white-space: pre-wrap;
@@ -64,18 +63,18 @@ body {
     line-height: 28px;
 }
 
-/* Red Margin Line */
+/* Red Vertical Line */
 .letter::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 60px; /* Aligned with padding */
+    left: 60px; 
     width: 2px;
     height: 100%;
-    background-color: rgba(255, 0, 0, 0.25);
+    background-color: rgba(255, 0, 0, 0.2);
 }
 
-/* Notebook Holes */
+/* Hole Punch Effect */
 .letter::after {
     content: "";
     position: absolute;
@@ -93,7 +92,7 @@ body {
     position: absolute;
     bottom: 25px;
     right: 20px;
-    padding: 10px 20px;
+    padding: 8px 15px;
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid #aaa;
     border-radius: 4px;
@@ -106,25 +105,25 @@ body {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    width: 120px;
+    width: 110px;
     opacity: 0;
     transition: opacity 1.5s ease-in;
     transform: rotate(-2deg);
     pointer-events: none;
 }
 
-/* Mobile Specific Alignment */
+/* Specific Mobile Fixes */
 @media (max-width: 480px) {
     body {
-        padding-top: 20px; /* Closer to the top on mobile */
+        padding-top: 15px;
     }
     .letter {
-        padding-left: 65px; /* Tighter margin for small screens */
+        padding-left: 60px; /* Adjusted for smaller screens */
         padding-right: 15px;
-        min-height: 580px;
         font-size: 1rem;
+        min-height: 550px;
     }
     .letter::before {
-        left: 52px;
+        left: 50px;
     }
 }
