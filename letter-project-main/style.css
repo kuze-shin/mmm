@@ -11,9 +11,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Changed from height to min-height */
+    min-height: 100vh; /* Changed to min-height for mobile scrolling */
     flex-direction: column;
-    padding: 20px; /* Space around the paper on mobile */
+    padding: 20px;
     overflow-x: hidden;
 }
 
@@ -43,42 +43,42 @@ body {
         #d2d2d2 28px
     );
     color: #333;
-    /* Responsive padding: slightly less on mobile */
-    padding: 30px 20px 60px 65px; 
+    /* Flexible padding to keep text safe inside the paper */
+    padding: 30px 20px 70px 70px; 
     border-radius: 10px;
-    width: 95%; /* Use most of the screen width on phone */
-    max-width: 500px; /* Don't get too big on PC */
-    min-height: 500px; /* Minimum height to look like a page */
-    height: auto; /* Let it grow if text is long */
+    width: 100%;
+    max-width: 500px;
+    min-height: 520px; /* Minimum height to keep paper shape */
+    height: auto;      /* CRITICAL: Allows paper to expand on mobile */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     position: relative;
     white-space: pre-wrap;
+    word-wrap: break-word; /* Prevents text from going outside */
     font-family: "Courier New", monospace;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     line-height: 28px;
-    word-wrap: break-word;
 }
 
-/* The red vertical line */
+/* Red Margin Line */
 .letter::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 50px; /* Adjusted for better phone alignment */
+    left: 60px;
     width: 2px;
     height: 100%;
     background-color: rgba(255, 0, 0, 0.2);
 }
 
-/* The notebook holes */
+/* Hole Punch Holes */
 .letter::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 20px;
+    width: 25px;
     height: 100%;
-    background-image: radial-gradient(circle, #1e1e2f 5px, transparent 6px);
+    background-image: radial-gradient(circle, #1e1e2f 6px, transparent 7px);
     background-size: 25px 40px;
     background-repeat: repeat-y;
 }
@@ -101,18 +101,19 @@ body {
     position: absolute;
     bottom: 15px;
     right: 15px;
-    width: 100px;
+    width: 130px;
     opacity: 0;
     transition: opacity 1.5s ease-in;
     transform: rotate(-2deg);
     pointer-events: none;
 }
 
-/* Mobile alignment fix */
-@media (max-width: 400px) {
+/* Specific Phone Alignment Adjustment */
+@media (max-width: 480px) {
     .letter {
-        font-size: 0.95rem; /* Smaller font for small phones */
         padding-left: 55px;
+        padding-right: 15px;
+        font-size: 1rem;
     }
     .letter::before {
         left: 45px;
