@@ -30,7 +30,7 @@ and it's you who lives inside my head.
 function typeEffect(elementId, text, speed, callback) {
     let i = 0;
     const element = document.getElementById(elementId);
-    element.innerHTML = ""; // Ensures paper is empty before typing starts
+    element.innerHTML = ""; 
     function type() {
         if (i < text.length) {
             element.innerHTML += text.charAt(i);
