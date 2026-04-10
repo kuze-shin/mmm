@@ -10,21 +10,26 @@ body {
     color: #fff;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* Moves paper to the top rather than the dead center */
+    align-items: flex-start; 
     min-height: 100vh;
     flex-direction: column;
-    padding: 20px;
-    overflow-y: auto; /* Allows scrolling if the paper gets very long */
+    /* Added top padding to balance the paper at the top */
+    padding: 40px 15px; 
+    overflow-x: hidden;
 }
 
 .intro {
     text-align: center;
-    font-size: 1.4rem;
-    margin-bottom: 30px;
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
     transition: opacity 1s ease;
 }
 
 .btn {
+    margin: 0 auto;
+    display: block;
     padding: 12px 24px;
     font-size: 1rem;
     background: #f5eeef;
@@ -43,32 +48,31 @@ body {
         #d2d2d2 28px
     );
     color: #333;
-    /* Increased padding-bottom to 100px to ensure space for buttons/signature */
-    padding: 40px 20px 100px 75px; 
+    /* Balanced padding: 75px left to clear the red line and holes */
+    padding: 40px 20px 80px 75px; 
     border-radius: 10px;
     width: 100%;
-    max-width: 500px;
-    /* Increased height and changed to min-height */
-    min-height: 650px; 
+    max-width: 480px;
+    min-height: 600px; 
     height: auto !important; 
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     position: relative;
     white-space: pre-wrap;
     word-wrap: break-word;
     font-family: "Courier New", monospace;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 28px;
 }
 
-/* Red Margin Line - Adjusted for perfect alignment */
+/* Red Margin Line */
 .letter::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 65px;
+    left: 60px; /* Aligned with padding */
     width: 2px;
     height: 100%;
-    background-color: rgba(255, 0, 0, 0.3);
+    background-color: rgba(255, 0, 0, 0.25);
 }
 
 /* Notebook Holes */
@@ -79,7 +83,7 @@ body {
     left: 0;
     width: 25px;
     height: 100%;
-    background-image: radial-gradient(circle, #1e1e2f 6px, transparent 7px);
+    background-image: radial-gradient(circle, #1e1e2f 5px, transparent 6px);
     background-size: 25px 40px;
     background-repeat: repeat-y;
 }
@@ -87,38 +91,40 @@ body {
 .next-btn {
     display: none;
     position: absolute;
-    bottom: 30px;
-    right: 30px;
-    padding: 10px 18px;
-    background: rgba(0, 0, 0, 0.08);
-    border: 1px solid #777;
-    border-radius: 5px;
+    bottom: 25px;
+    right: 20px;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid #aaa;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 0.9rem;
-    color: #333;
-    font-weight: bold;
+    font-size: 0.85rem;
+    color: #444;
 }
 
 .signature {
     position: absolute;
-    bottom: 25px;
-    right: 25px;
-    width: 140px;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
     opacity: 0;
-    transition: opacity 2s ease-in;
-    transform: rotate(-3deg);
+    transition: opacity 1.5s ease-in;
+    transform: rotate(-2deg);
     pointer-events: none;
 }
 
-/* Mobile Alignment Fix */
+/* Mobile Specific Alignment */
 @media (max-width: 480px) {
+    body {
+        padding-top: 20px; /* Closer to the top on mobile */
+    }
     .letter {
-        padding-left: 65px;
+        padding-left: 65px; /* Tighter margin for small screens */
         padding-right: 15px;
-        font-size: 1.05rem;
-        min-height: 600px;
+        min-height: 580px;
+        font-size: 1rem;
     }
     .letter::before {
-        left: 55px;
+        left: 52px;
     }
 }
